@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101214">
+  <meta name="description" content="THE ZOMBIE APOCALYPSE — архив мира после конца света.">
+  <title>THE ZOMBIE APOCALYPSE — SURVIVAL ARCHIVE</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&display=swap');
+:root{--bg:#101214;--panel:#191d20;--line:#343a3e;--text:#e7e5df;--muted:#969da0;--red:#b52e2b;--red2:#df4941}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:'Roboto Condensed',Arial,sans-serif;letter-spacing:.02em}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}
+.topbar{height:78px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:#111416;border-bottom:1px solid #292e31;position:sticky;top:0;z-index:20}
+.brand{display:flex;align-items:center;gap:10px;font:500 13px/1.1 'Oswald';letter-spacing:.09em;white-space:nowrap}.brand-mark{width:39px;height:39px;border:1px solid var(--red);display:grid;place-items:center;color:#e34b43;font:700 15px 'Oswald';transform:skew(-7deg)}.brand b{color:#fff}
+nav{display:flex;gap:19px}nav a{font-size:11px;color:#aeb3b5;text-transform:uppercase;letter-spacing:.07em;transition:.2s}nav a:hover{color:#fff}.admin-open,.text-btn{border:1px solid #68403d;background:transparent;color:#e07b73;padding:11px 13px;font:500 10px 'Oswald';letter-spacing:.08em;cursor:pointer;white-space:nowrap}.mobile-menu{display:none;background:none;color:white;border:0;font-size:23px}
+.hero{min-height:590px;position:relative;display:flex;align-items:center;padding:65px 10%;overflow:hidden;background:#17191a url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=2200&q=85') center 48%/cover no-repeat}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,10,11,.97),rgba(8,10,11,.74) 52%,rgba(8,10,11,.2)),linear-gradient(0deg,#101214,transparent 30%)}.hero-content{position:relative;z-index:1;max-width:700px}.eyebrow{font:500 11px 'Oswald';letter-spacing:.2em;color:#d05a53;text-transform:uppercase}.pulse{display:inline-block;width:7px;height:7px;background:#d9433c;border-radius:50%;margin-right:9px;box-shadow:0 0 12px #d9433c}.hero h1{font:700 clamp(48px,7vw,86px)/.98 'Oswald';margin:24px 0}.hero h1 em{font-style:normal;color:#c9413b}.hero p{color:#b4b8b7;font-size:16px;line-height:1.7;margin-bottom:30px}.primary-btn{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;background:var(--red);border:0;color:#fff;padding:15px 19px;font:600 12px 'Oswald';letter-spacing:.1em;cursor:pointer;transition:.2s}.primary-btn:hover{background:var(--red2);transform:translateY(-2px)}.hero-stamp{position:absolute;z-index:2;right:10%;top:23%;border:2px solid rgba(198,57,52,.75);color:rgba(220,73,66,.85);font:700 19px/1.3 'Oswald';padding:13px;transform:rotate(9deg);text-align:center}.hero-bottom{position:absolute;z-index:2;bottom:25px;left:5%;right:5%;display:flex;justify-content:space-between;color:#858b8d;font:11px 'Oswald';letter-spacing:.13em}
+.ticker{background:#8e2725;color:#f4e9e5;padding:12px 5%;font:500 11px 'Oswald';letter-spacing:.1em}.ticker span{margin-right:10px}.section-wrap{padding:75px 8% 95px;min-height:430px}.section-heading{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:20px}.section-heading h2,.classified-inner h2,.admin-modal h2{font:600 clamp(28px,4vw,43px)/1.05 'Oswald';margin:10px 0 0}.section-meta{color:#6f777a;font:11px 'Oswald';letter-spacing:.12em}.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin:25px 0}.filter{background:#191d20;color:#8e9699;border:1px solid #303639;padding:9px 12px;font:500 10px 'Oswald';letter-spacing:.08em;cursor:pointer}.filter.active,.filter:hover{background:#7f2927;color:white;border-color:#a43c38}
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.material-card{background:#191d20;border:1px solid #2e3438;transition:.2s;min-width:0}.material-card:hover{transform:translateY(-4px);border-color:#75403d}.card-image{height:185px;background:linear-gradient(135deg,#2a3033,#111416);background-position:center;background-size:cover;position:relative}.card-image:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.55))}.card-tag,.draft-tag{position:absolute;z-index:1;top:13px;left:13px;background:#9e302d;color:#fff;padding:6px 9px;font:500 10px 'Oswald';letter-spacing:.1em}.draft-tag{left:auto;right:12px;background:#565b5e}.card-copy{padding:19px}.card-date{font:10px 'Oswald';color:#82898c;letter-spacing:.1em}.card-copy h3{font:600 23px/1.15 'Oswald';margin:10px 0}.card-copy p{font-size:14px;line-height:1.55;color:#a6adaf;min-height:43px}.read-more,.delete-material{background:none;border:0;padding:8px 0;color:#df6860;font:600 11px 'Oswald';letter-spacing:.08em;cursor:pointer}.delete-material{margin-left:15px;color:#a1a5a6}.empty-state{grid-column:1/-1;text-align:center;padding:65px 20px;border:1px dashed #3b4246;color:#969da0}.empty-state b{font:600 22px 'Oswald';color:#e4e2dc}.empty-state p{font-size:14px}.loader{display:inline-block;width:20px;height:20px;border:2px solid #494f52;border-top-color:#cf4b43;border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.classified-band{padding:70px 10%;background:linear-gradient(90deg,rgba(10,12,13,.96),rgba(10,12,13,.72)),url('https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1800&q=80') center/cover}.classified-inner{max-width:750px}.red-label{color:#df5a52;font:600 11px 'Oswald';letter-spacing:.2em}.classified-inner h2{font-size:clamp(32px,5vw,54px);margin:16px 0}.classified-inner p{color:#a9afb0;max-width:520px;line-height:1.6}footer{padding:27px 5%;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #2b3033;color:#777f82;font:10px 'Oswald';letter-spacing:.08em}.footer-status{color:#8eb18c}
+.modal-backdrop,.detail-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:50;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(5px)}.modal-backdrop.visible{display:flex}.admin-modal,.detail-panel{position:relative;background:#171b1e;border:1px solid #41484c;width:min(560px,100%);max-height:92vh;overflow:auto;padding:35px}.modal-close{position:absolute;right:17px;top:10px;background:none;border:0;color:#aab0b2;font-size:30px;cursor:pointer}.admin-modal h2{font-size:34px;margin:12px 0}.muted{color:#9ba2a4;font-size:14px;line-height:1.5}.stack{display:grid;gap:15px;margin-top:22px}.stack label{display:grid;gap:7px;color:#aeb4b5;font:500 10px 'Oswald';letter-spacing:.1em}.stack input,.stack textarea,.stack select{width:100%;background:#0f1214;border:1px solid #3b4246;color:#e9e7e1;padding:12px;font:14px 'Roboto Condensed';outline:none}.stack input:focus,.stack textarea:focus,.stack select:focus{border-color:#a7443e}.stack textarea{resize:vertical}.full{width:100%;justify-content:center}.hidden{display:none!important}.admin-workspace{border-top:1px solid #343a3e;margin-top:25px;padding-top:15px}.admin-workspace h3{font:600 19px 'Oswald';margin:22px 0}.admin-toolbar{display:flex;align-items:center;gap:8px;color:#b8c0bd;font-size:12px}.admin-toolbar .text-btn{margin-left:auto}.green-dot{width:7px;height:7px;background:#7cae7c;border-radius:50%}.check-label{display:flex!important;align-items:center;grid-template-columns:18px 1fr!important}.check-label input{width:16px!important}.form-message{font-size:13px;line-height:1.5;color:#b4babb}.form-message.error{color:#ed7770}.form-message.success{color:#8fbe91}.detail-backdrop:not(.hidden){display:flex}.detail-panel{width:min(850px,100%);padding:42px}.detail-panel h2{font:600 clamp(30px,5vw,48px) 'Oswald';margin:12px 0}.detail-image{width:100%;max-height:350px;object-fit:cover;margin-bottom:25px}.detail-summary{font-size:17px;color:#b6bdbd}.detail-body{font-size:16px;line-height:1.8;color:#d1d3cf;white-space:normal;margin-top:25px}
+@media(max-width:1100px){nav{gap:11px}nav a{font-size:10px}.admin-open{font-size:9px;padding:9px}.card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.topbar{height:68px;padding:0 18px}.mobile-menu{display:block;margin-left:auto;margin-right:12px}nav{display:none;position:absolute;top:68px;left:0;right:0;background:#15191b;padding:18px;flex-direction:column;border-bottom:1px solid #3a4043}nav.open{display:flex}nav a{font-size:13px;padding:5px}.admin-open{font-size:9px}.hero{min-height:560px;padding:55px 7%}.hero-stamp{right:7%;top:8%;font-size:13px}.hero-bottom{font-size:9px}.section-wrap{padding:55px 6% 65px}.section-heading{align-items:start;gap:15px;flex-direction:column}.card-grid{grid-template-columns:1fr}.card-image{height:205px}.classified-band{padding:55px 7%}footer{gap:15px;flex-wrap:wrap}.desktop{display:none}.admin-modal{padding:28px 20px}.detail-panel{padding:30px 20px}.ticker{font-size:10px;line-height:1.5}}
+
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark">TZA</span><span>THE ZOMBIE<br><b>APOCALYPSE</b></span></a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Открыть меню">☰</button>
+    <nav id="mainNav">
+      <a href="#home">Главная</a><a href="#encyclopedia">Энциклопедия</a>
+      <a href="#bestiary">Бестиарий</a><a href="#characters">Персонажи</a>
+      <a href="#locations">Локации</a><a href="#anomalies">Аномалии</a>
+      <a href="#news">Новости</a><a href="#updates">Обновления</a>
+    </nav>
+    <button class="admin-open" id="adminOpen">ВХОД АДМИНИСТРАЦИИ</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="pulse"></span> OFFICIAL SURVIVAL DATABASE</div>
+        <h1>МИР ПОГИБ.<br><em>АРХИВ ОСТАЛСЯ.</em></h1>
+        <p>Документы, свидетельства и засекреченные материалы<br class="desktop"> мира после начала эпидемии.</p>
+        <a class="primary-btn" href="#encyclopedia">ОТКРЫТЬ АРХИВ <span>↗</span></a>
+      </div>
+      <div class="hero-stamp">RESTRICTED<br>ACCESS // TZA</div>
+      <div class="hero-bottom"><span>СИСТЕМА АРХИВА АКТИВНА</span><span>NO SAFE ZONE GUARANTEED</span></div>
+    </section>
+    <div class="ticker"><span>●</span> ВНИМАНИЕ: ИНФОРМАЦИЯ МОЖЕТ СОДЕРЖАТЬ СВЕДЕНИЯ О ЗАРАЖЁННЫХ, АНОМАЛИЯХ И ОПАСНЫХ ТЕРРИТОРИЯХ</div>
+
+    <section class="section-wrap" id="content">
+      <div class="section-heading">
+        <div><div class="eyebrow">DATABASE / INDEX</div><h2 id="sectionTitle">ПОСЛЕДНИЕ МАТЕРИАЛЫ</h2></div>
+        <div class="section-meta">ARCHIVE STATUS: <span id="status">CONNECTING</span></div>
+      </div>
+      <div class="filter-row" id="filters">
+        <button class="filter active" data-filter="all">ВСЁ</button>
+        <button class="filter" data-filter="articles">СТАТЬИ</button>
+        <button class="filter" data-filter="bestiary">БЕСТИАРИЙ</button>
+        <button class="filter" data-filter="characters">ПЕРСОНАЖИ</button>
+        <button class="filter" data-filter="locations">ЛОКАЦИИ</button>
+        <button class="filter" data-filter="anomalies">АНОМАЛИИ</button>
+        <button class="filter" data-filter="news">НОВОСТИ</button>
+        <button class="filter" data-filter="updates">ОБНОВЛЕНИЯ</button>
+      </div>
+      <div class="card-grid" id="materialGrid"><div class="empty-state"><span class="loader"></span><p>ЗАГРУЗКА АРХИВА...</p></div></div>
+    </section>
+
+    <section class="classified-band">
+      <div class="classified-inner"><span class="red-label">CLASSIFIED / TZA</span><h2>НЕ ВСЁ, ЧТО ЖИВЁТ,<br>ЕЩЁ ОСТАЛОСЬ ЧЕЛОВЕКОМ.</h2><p>Некоторые файлы были восстановлены из повреждённых архивов. Их подлинность не подтверждена.</p></div>
+    </section>
+    <footer><a class="brand" href="#home"><span class="brand-mark">TZA</span><span>THE ZOMBIE<br><b>APOCALYPSE</b></span></a><span>© THE ZOMBIE APOCALYPSE — SURVIVAL ARCHIVE</span><span class="footer-status">● ARCHIVE ONLINE</span></footer>
+  </main>
+
+  <div class="modal-backdrop" id="adminModal" aria-hidden="true">
+    <section class="admin-modal">
+      <button class="modal-close" id="modalClose" aria-label="Закрыть">×</button>
+      <div class="eyebrow">SECURE TERMINAL / AUTHENTICATION</div>
+      <h2>АДМИНИСТРАЦИЯ</h2>
+      <p class="muted" id="authHint">Войдите с аккаунтом, которому владелец проекта выдал права администратора.</p>
+      <form id="loginForm" class="stack">
+        <label>EMAIL АККАУНТА<input id="email" type="email" autocomplete="username" placeholder="admin@example.com" required></label>
+        <label>ПАРОЛЬ<input id="password" type="password" autocomplete="current-password" placeholder="Пароль аккаунта" required></label>
+        <button class="primary-btn full" type="submit">АВТОРИЗОВАТЬСЯ ↗</button>
+      </form>
+      <div class="admin-workspace hidden" id="adminWorkspace">
+        <div class="admin-toolbar"><span class="green-dot"></span><span id="adminEmail"></span><button class="text-btn" id="logoutBtn">ВЫЙТИ</button></div>
+        <h3>НОВАЯ ЗАПИСЬ В АРХИВ</h3>
+        <form id="materialForm" class="stack">
+          <label>РАЗДЕЛ<select id="category" required>
+            <option value="articles">Статья</option><option value="bestiary">Бестиарий</option>
+            <option value="characters">Персонажи</option><option value="locations">Локации</option>
+            <option value="anomalies">Аномалии</option><option value="items">Предметы</option>
+            <option value="factions">Фракции</option><option value="rules">Правила</option>
+            <option value="news">Новости</option><option value="updates">Обновления</option>
+          </select></label>
+          <label>НАЗВАНИЕ<input id="title" maxlength="100" required placeholder="Например: Объект 014 — Ночной охотник"></label>
+          <label>КОРОТКОЕ ОПИСАНИЕ<textarea id="summary" rows="2" maxlength="240" placeholder="Краткая информация для карточки"></textarea></label>
+          <label>ПОЛНЫЙ ТЕКСТ<textarea id="body" rows="7" required placeholder="Содержание материала..."></textarea></label>
+          <label>ОБЛОЖКА / ИЗОБРАЖЕНИЕ<input id="imageFile" type="file" accept="image/png,image/jpeg,image/webp"></label>
+          <label class="check-label"><input id="published" type="checkbox" checked> Опубликовать сразу</label>
+          <button class="primary-btn full" type="submit">СОХРАНИТЬ В АРХИВ ↗</button>
+        </form>
+        <p class="form-message" id="formMessage" role="status"></p>
+      </div>
+      <p class="form-message" id="loginMessage" role="status"></p>
+    </section>
+  </div>
+
+  <div class="detail-backdrop hidden" id="detailModal">
+    <article class="detail-panel"><button class="modal-close" id="detailClose">×</button><div id="detailContent"></div></article>
+  </div>
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, query, where, orderBy, serverTimestamp, doc, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-storage.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyD_V64vDii7yudncWf75di4Z5HDFvkXges",
+  authDomain: "zombierp-d57f7.firebaseapp.com",
+  projectId: "zombierp-d57f7",
+  storageBucket: "zombierp-d57f7.firebasestorage.app",
+  messagingSenderId: "748139004932",
+  appId: "1:748139004932:web:92db2f6ac7d7dd440e2151"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+const $ = (selector) => document.querySelector(selector);
+const grid = $("#materialGrid");
+const modal = $("#adminModal");
+const loginForm = $("#loginForm");
+const workspace = $("#adminWorkspace");
+const loginMessage = $("#loginMessage");
+const formMessage = $("#formMessage");
+
+const labels = {
+  articles:"СТАТЬЯ", bestiary:"БЕСТИАРИЙ", characters:"ПЕРСОНАЖИ", locations:"ЛОКАЦИИ",
+  anomalies:"АНОМАЛИИ", items:"ПРЕДМЕТЫ", factions:"ФРАКЦИИ", rules:"ПРАВИЛА",
+  news:"НОВОСТИ", updates:"ОБНОВЛЕНИЯ"
+};
+let materials = [];
+let filter = "all";
+let isAdmin = false;
+
+function escapeHTML(value = "") {
+  return String(value).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+}
+function formatDate(timestamp) {
+  return timestamp?.toDate ? timestamp.toDate().toLocaleDateString("ru-RU",{day:"2-digit",month:"long",year:"numeric"}) : "ДАТА НЕ УКАЗАНА";
+}
+function render() {
+  const visible = materials.filter(item => (isAdmin || item.published === true) && (filter === "all" || item.category === filter));
+  if (!visible.length) {
+    grid.innerHTML = `<div class="empty-state"><b>АРХИВ ПОКА ПУСТ</b><p>Материалы появятся здесь после публикации администрацией.</p></div>`;
+    return;
+  }
+  grid.innerHTML = visible.map(item => `
+    <article class="material-card">
+      <div class="card-image" ${item.imageUrl ? `style="background-image:url('${escapeHTML(item.imageUrl)}')"` : ""}>
+        <span class="card-tag">${escapeHTML(labels[item.category] || "АРХИВ")}</span>
+        ${item.published !== true ? '<span class="draft-tag">ЧЕРНОВИК</span>' : ""}
+      </div>
+      <div class="card-copy">
+        <div class="card-date">${escapeHTML(formatDate(item.createdAt))}</div>
+        <h3>${escapeHTML(item.title)}</h3>
+        <p>${escapeHTML(item.summary || (item.body || "").slice(0,150))}</p>
+        <button class="read-more" data-open="${escapeHTML(item.id)}">ЧИТАТЬ ДОСЬЕ ↗</button>
+        ${isAdmin ? `<button class="delete-material" data-delete="${escapeHTML(item.id)}">УДАЛИТЬ</button>` : ""}
+      </div>
+    </article>`).join("");
+  grid.querySelectorAll("[data-open]").forEach(button => button.addEventListener("click", () => {
+    const item = materials.find(entry => entry.id === button.dataset.open);
+    if (item) showDetail(item);
+  }));
+  grid.querySelectorAll("[data-delete]").forEach(button => button.addEventListener("click", async () => {
+    if (!confirm("Удалить материал из архива?")) return;
+    try { await deleteDoc(doc(db,"materials",button.dataset.delete)); await loadMaterials(); }
+    catch (error) { alert("Не удалось удалить материал: " + error.message); }
+  }));
+}
+function showDetail(item) {
+  $("#detailContent").innerHTML = `
+    ${item.imageUrl ? `<img class="detail-image" src="${escapeHTML(item.imageUrl)}" alt="">` : ""}
+    <div class="eyebrow">${escapeHTML(labels[item.category] || "АРХИВ")} / ${escapeHTML(formatDate(item.createdAt))}</div>
+    <h2>${escapeHTML(item.title)}</h2><p class="detail-summary">${escapeHTML(item.summary || "")}</p>
+    <div class="detail-body">${escapeHTML(item.body || "").replace(/\n/g,"<br>")}</div>`;
+  $("#detailModal").classList.remove("hidden");
+}
+async function loadMaterials() {
+  $("#status").textContent = "SYNCING";
+  try {
+    const materialsQuery = isAdmin
+      ? query(collection(db,"materials"),orderBy("createdAt","desc"))
+      : query(collection(db,"materials"),where("published","==",true),orderBy("createdAt","desc"));
+    const snapshot = await getDocs(materialsQuery);
+    materials = snapshot.docs.map(item => ({id:item.id,...item.data()}));
+    $("#status").textContent = "ONLINE";
+    render();
+  } catch (error) {
+    console.error(error);
+    $("#status").textContent = "ERROR";
+    grid.innerHTML = `<div class="empty-state"><b>АРХИВ НЕДОСТУПЕН</b><p>Проверь Firestore и правила безопасности. Подробности — в README.md.</p></div>`;
+  }
+}
+async function isAllowedAdmin(user) {
+  if (!user) return false;
+  try {
+    const adminDoc = await getDoc(doc(db,"admins",user.uid));
+    return adminDoc.exists() && adminDoc.data().enabled === true;
+  } catch (error) { console.error("Admin check:",error); return false; }
+}
+function updateAdminUI(user, allowed) {
+  isAdmin = allowed;
+  loginForm.classList.toggle("hidden",!!user);
+  workspace.classList.toggle("hidden",!(user && allowed));
+  if (user && allowed) $("#adminEmail").textContent = user.email || user.uid;
+  if (user && !allowed) {
+    loginMessage.textContent = "Вход выполнен, но аккаунту не выданы права администратора. Следуй шагу 4 в README.md.";
+    loginMessage.className = "form-message error";
+  } else {
+    loginMessage.textContent = "";
+    loginMessage.className = "form-message";
+  }
+  render();
+}
+onAuthStateChanged(auth, async user => {
+  const allowed = await isAllowedAdmin(user);
+  updateAdminUI(user,allowed);
+  await loadMaterials();
+});
+
+$("#adminOpen").addEventListener("click",() => { modal.classList.add("visible"); modal.setAttribute("aria-hidden","false"); });
+$("#modalClose").addEventListener("click",closeAdmin);
+modal.addEventListener("click",event => { if(event.target === modal) closeAdmin(); });
+function closeAdmin(){ modal.classList.remove("visible"); modal.setAttribute("aria-hidden","true"); }
+$("#detailClose").addEventListener("click",() => $("#detailModal").classList.add("hidden"));
+$("#detailModal").addEventListener("click",event => { if(event.target.id === "detailModal") $("#detailModal").classList.add("hidden"); });
+
+loginForm.addEventListener("submit",async event => {
+  event.preventDefault();
+  loginMessage.textContent = "Проверка учётной записи...";
+  loginMessage.className = "form-message";
+  try {
+    await signInWithEmailAndPassword(auth,$("#email").value.trim(),$("#password").value);
+    $("#password").value = "";
+  } catch (error) {
+    loginMessage.textContent = friendlyAuthError(error.code);
+    loginMessage.className = "form-message error";
+  }
+});
+function friendlyAuthError(code){
+  const messages = {
+    "auth/invalid-credential":"Неверный email или пароль.",
+    "auth/user-not-found":"Аккаунт не найден.",
+    "auth/too-many-requests":"Слишком много попыток. Попробуй позже.",
+    "auth/invalid-email":"Проверь правильность email.",
+    "auth/network-request-failed":"Проблема с подключением к сети."
+  };
+  return messages[code] || "Не удалось войти. Проверь настройки Firebase Authentication.";
+}
+$("#logoutBtn").addEventListener("click",() => signOut(auth));
+
+$("#materialForm").addEventListener("submit",async event => {
+  event.preventDefault();
+  if (!auth.currentUser || !isAdmin) { formMessage.textContent = "Нет прав администратора."; return; }
+  const submit = event.submitter;
+  submit.disabled = true;
+  formMessage.textContent = "Сохранение материала...";
+  formMessage.className = "form-message";
+  try {
+    const file = $("#imageFile").files[0];
+    let imageUrl = "";
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) throw new Error("Изображение должно быть меньше 5 МБ.");
+      if (!["image/jpeg","image/png","image/webp"].includes(file.type)) throw new Error("Поддерживаются JPG, PNG и WEBP.");
+      const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+      const imageRef = ref(storage,`materials/${auth.currentUser.uid}/${Date.now()}_${safeName}`);
+      await uploadBytes(imageRef,file,{contentType:file.type});
+      imageUrl = await getDownloadURL(imageRef);
+    }
+    await addDoc(collection(db,"materials"),{
+      category:$("#category").value,
+      title:$("#title").value.trim(),
+      summary:$("#summary").value.trim(),
+      body:$("#body").value.trim(),
+      imageUrl,
+      published:$("#published").checked,
+      createdAt:serverTimestamp(),
+      updatedAt:serverTimestamp(),
+      authorUid:auth.currentUser.uid
+    });
+    $("#materialForm").reset();
+    $("#published").checked = true;
+    formMessage.textContent = "Материал сохранён.";
+    formMessage.className = "form-message success";
+    await loadMaterials();
+  } catch (error) {
+    console.error(error);
+    formMessage.textContent = "Ошибка: " + error.message;
+    formMessage.className = "form-message error";
+  } finally { submit.disabled = false; }
+});
+
+function setFilter(nextFilter) {
+  filter = nextFilter;
+  $("#filters").querySelectorAll(".filter").forEach(item =>
+    item.classList.toggle("active", item.dataset.filter === filter)
+  );
+  render();
+}
+
+$("#filters").addEventListener("click", event => {
+  const button = event.target.closest("[data-filter]");
+  if (!button) return;
+  setFilter(button.dataset.filter);
+});
+
+const navFilters = {
+  "#encyclopedia": "all",
+  "#bestiary": "bestiary",
+  "#characters": "characters",
+  "#locations": "locations",
+  "#anomalies": "anomalies",
+  "#news": "news",
+  "#updates": "updates"
+};
+
+$("#mobileMenu").addEventListener("click", () => $("#mainNav").classList.toggle("open"));
+$("#mainNav").querySelectorAll("a").forEach(link => link.addEventListener("click", event => {
+  $("#mainNav").classList.remove("open");
+  const targetFilter = navFilters[link.getAttribute("href")];
+  if (targetFilter) {
+    event.preventDefault();
+    history.replaceState(null, "", link.getAttribute("href"));
+    setFilter(targetFilter);
+    $("#content").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}));
+loadMaterials();
+
+</script>
+</body>
+</html>
